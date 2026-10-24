@@ -1,0 +1,13 @@
+{
+  "name": "Orbit",
+  "short_name": "Orbit",
+  "description": "A personal calendar that keeps your data on your device.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#151515",
+  "theme_color": "#151515",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
