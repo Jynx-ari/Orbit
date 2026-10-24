@@ -1,92 +1,281 @@
+
 .app {
-    min-height: 100vh;
-    padding: 0 40px;
-    background: #17191f;
-    color: #eeeeF4;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  min-height: 100vh;
+  padding: 20px;
+  gap: 16px;
+  color: #ededed;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 14px;
+  background: #171717;
+  border: 1px solid #303030;
+  border-radius: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 4px 6px 30px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: #e8e8e8;
+  color: #171717;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.brand p {
+  margin: 4px 0 0;
+  color: #858585;
+  font-size: 11px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-heading {
+  margin: 14px 8px 8px;
+  color: #777;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+}
+
+.nav-item {
+  padding: 10px;
+  border-radius: 8px;
+  color: #b8b8b8;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #303030;
+  color: #fff;
+}
+
+.sidebar-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 18px 5px 0;
+  color: #858585;
+  font-size: 10px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6acb91;
+}
+
+.workspace {
+  min-width: 0;
+  padding: 0 2px;
 }
 
 .topbar {
-    min-height: 88px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #30313a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  padding: 0 18px;
+  background: #171717;
+  border: 1px solid #303030;
+  border-radius: 14px;
 }
 
-.logo {
-    font-size: 28px;
-    letter-spacing: -1.5px;
+.breadcrumb {
+  color: #a1a1a1;
+  font-size: 12px;
 }
 
-.logo span {
-    color: #9b8afb;
+.profile {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #555;
+  border-radius: 50%;
+  background: #333;
+  font-size: 12px;
 }
 
-.navigation {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.calendar-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  margin-top: 16px;
+  overflow: hidden;
+  border: 1px solid #303030;
+  border-radius: 14px;
+  background: #101010;
 }
 
-.navigation h2 {
-    min-width: 180px;
-    text-align: center;
-    font-size: 16px;
+.calendar-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px;
+  border-bottom: 1px solid #292929;
 }
 
-button {
-    padding: 9px 13px;
-    border: 1px solid #393a45;
-    border-radius: 8px;
-    background: #22242d;
-    color: #eeeeF4;
-    cursor: pointer;
+.eyebrow {
+  margin: 0 0 7px;
+  color: #858585;
+  font-size: 10px;
+  letter-spacing: 1.5px;
 }
 
-button:hover {
-    background: #30313d;
+.calendar-toolbar h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 600;
 }
 
-.calendar {
-    padding-top: 48px;
+.primary-button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 7px;
+  background: #ededed;
+  color: #171717;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.calendar h2 {
-    margin: 12px 0;
-    font-size: 36px;
-    letter-spacing: -1px;
+.primary-button:hover {
+  background: #fff;
 }
 
-.calendar p {
-    color: #a2a3b1;
+.calendar-placeholder {
+  display: grid;
+  flex: 1;
+  place-items: center;
+  padding: 32px;
+  text-align: center;
 }
 
-.calendar .eyebrow {
-    color: #9b8afb;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
+.placeholder-icon {
+  color: #777;
+  font-size: 32px;
 }
 
-@media (max-width: 600px) {
-    .app {
-        padding: 0 16px;
-    }
+.calendar-placeholder h3 {
+  margin: 14px 0 8px;
+  font-size: 18px;
+}
 
-    .topbar {
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        gap: 12px;
-        padding: 18px 0;
-    }
+.calendar-placeholder p {
+  max-width: 280px;
+  margin: 0;
+  color: #858585;
+  font-size: 13px;
+  line-height: 1.7;
+}
 
-    .navigation {
-        gap: 6px;
-        flex-wrap: wrap;
-    }
+.month-label {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: white
+}
 
-    .navigation h2 {
-        min-width: 140px;
-    }
+
+@media (max-width: 700px) {
+  .app {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .sidebar {
+    padding: 14px;
+  }
+
+  .brand {
+    padding-bottom: 12px;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-heading {
+    width: 100%;
+  }
+
+  .sidebar-footer {
+    margin-top: 14px;
+  }
+
+  .calendar-panel {
+    min-height: 500px;
+  }
+
+  .calendar-toolbar {
+    padding: 18px;
+  }
+}
+
+
+.month-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.month-navigation span {
+  min-width: 130px;
+  color: #ededed;
+  font-size: 14px;
+  text-align: center;
+}
+
+.month-navigation button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #353535;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #ededed;
+}
+
+.month-navigation button:hover {
+  background: #303030;
+}
+
+@media (max-width: 700px) {
+  .calendar-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .month-navigation {
+    order: 3;
+    width: 100%;
+  }
 }
