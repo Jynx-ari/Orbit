@@ -46,7 +46,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [editing, setEditing] = useState(null);
   const [dialog, setDialog] = useState(null);
-  const [showSide, setShowSide] = useState(true);
+  const [showSide, setShowSide] = useState(() => window.matchMedia("(min-width: 801px)").matches);
   const [toasts, setToasts] = useState([]);
   const [online, setOnline] = useState(() => navigator.onLine);
   const [notifPermission, setNotifPermission] = useState(() =>

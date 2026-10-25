@@ -379,3 +379,99 @@ input[type="date"], input[type="time"] { color-scheme: dark; }
   .range-label { min-width: 0; font-size: 14px; }
   .breadcrumb span, .breadcrumb svg { display: none; }
 }
+
+/* ------------------------------------------------ dialogs that always fit */
+/* The body scrolls and the header/footer stay on screen, however tall the form gets. */
+.modal { max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); }
+.modal-body { flex: 1 1 auto; min-height: 0; }
+.modal-footer, .scope-panel { flex-shrink: 0; flex-wrap: wrap; }
+
+@media (max-width: 800px) {
+  /* Phones: dialogs slide up from the bottom as a sheet, like native apps. */
+  .modal-backdrop { align-items: end; padding: 0; }
+  .modal, .modal.wide {
+    width: 100%;
+    max-height: 92vh;
+    max-height: 92dvh;
+    border-radius: 16px 16px 0 0;
+  }
+  .modal-header { padding: 14px 16px 4px; }
+  .modal-body { padding: 10px 16px; }
+  .modal-footer, .scope-panel { padding: 12px 16px calc(14px + env(safe-area-inset-bottom, 0px)); }
+  .footer-actions { width: 100%; justify-content: flex-end; }
+  .footer-actions button { flex: 1 1 auto; }
+
+  /* Hide the brand text and mini calendar so the calendar gets the screen. */
+  .brand p { display: none; }
+  .calendar-sidebar { display: none; }
+  .calendar-actions { flex-wrap: wrap; }
+  .calendar-panel { min-height: calc(100vh - 150px); min-height: calc(100dvh - 150px); }
+  .calendar-main-heading { justify-content: space-between; }
+  .range-label { order: 2; flex: 1; min-width: 0; font-size: 14px; }
+}
+
+/* The dialog contents live inside a <form>; it must be a flex column too,
+   otherwise the body can't scroll and the Save button is pushed off screen. */
+.modal > form {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+}
+.modal { overflow: hidden; }
+
+/* ===================================================== phone layout (final) */
+/* Native-style: bottom tab bar, compact header, view switch under the title. */
+@media (max-width: 800px) {
+  .app {
+    padding: calc(8px + env(safe-area-inset-top, 0px)) 8px calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .sidebar {
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 40;
+    height: auto;
+    margin: 0;
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--panel);
+  }
+  .brand, .nav-heading, .sidebar-footer { display: none; }
+  .sidebar-nav { flex-direction: row; flex-wrap: nowrap; gap: 4px; }
+  .nav-item {
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    width: auto;
+    padding: 7px 4px;
+    font-size: 10px;
+    text-align: center;
+  }
+  .nav-item svg { width: 18px; height: 18px; }
+
+  .topbar { display: none; }
+  .workspace { gap: 0; }
+  .calendar-toolbar { min-height: 44px; padding: 4px 12px; }
+  .calendar-actions { padding: 10px 12px 8px; }
+  .calendar-content { margin: 0 8px 8px; }
+
+  .calendar-main-heading {
+    position: static;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 0;
+    padding: 8px 10px 10px;
+  }
+  .range-label { order: 0; flex: 1; min-width: 0; font-size: 15px; }
+  .view-switch { position: static; order: 3; width: 100%; }
+  .view-switch button { flex: 1; padding: 9px 4px; font-size: 12px; }
+
+  .toasts { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+}
