@@ -372,7 +372,7 @@ function App() {
     <main className="app">
       <aside className="sidebar">
         <div className="brand">
-          <div className="brand-icon"><Sparkles size={17} /></div>
+          <div className="brand-icon"><Sparkles size={20} /></div>
           <div>
             <h1>Orbit</h1>
             <p>Your calendar, your space.</p>

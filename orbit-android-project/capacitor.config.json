@@ -1,0 +1,12 @@
+{
+  "appId": "com.jynx.orbit",
+  "appName": "Orbit",
+  "webDir": "dist",
+  "backgroundColor": "#151515",
+  "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_orbit",
+      "iconColor": "#e8e8e8"
+    }
+  }
+}
